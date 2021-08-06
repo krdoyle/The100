@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #1d5888;
-    --secondary-color: #ff993b;
-    --dark-color: #292929;
-    --white-color: #e4e4e4;
+    --primary-color: #4A6662;
+    --secondary-color: #f2a341;
+    --dark-color: #123036;
+    --white-color: #e8dcca;
 }
 
 body {
@@ -37,19 +37,19 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .jsicon {
-    color: rgb(226,211,4);
+    color: rgb(243, 239, 12);
 }
 
 .html5icon {
-    color: orangered;
+    color: rgb(212, 38, 16);
 }
 
 .cssicon {
-    color: rgb(11,82,214);
+    color: rgb(26, 99, 235);
 }
 
 .checklist >li i {
-    color: var(--secondary-color)
+    color: var(--primary-color)
 }
 
 code[class*="language-"],
@@ -66,6 +66,14 @@ pre[class*="language-"] {
 
 }
 
+.even {
+    font-weight: bold;
+}
+
+.odd {
+    font-weight: 100;
+}
+
 main>.container {
     padding: 60px 15px 0;
 }
@@ -75,3 +83,4 @@ main>.container {
     bottom: 0;
     width: 100% ;
 }
+

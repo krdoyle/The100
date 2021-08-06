@@ -67,16 +67,73 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                            function HelloWorld(){
-                                alert("Hello World!!");
+                        //get values from the page (controller)
+                        function getValues() {
+                            //get values from page
+                            let startValue = document.getElementById("startValue").value;
+                            let endValue = document.getElementById("endValue").value;
+                        
+                            //parse into Integers (validate the input)
+                            startValue = parseInt(startValue);
+                            endValue = parseInt(endValue);
+                        
+                            if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                //call generateNumbers
+                                let numbers = generateNumbers(startValue, endValue);
+                                //call displayNumbers
+                                displayNumbers(numbers);
+                        
+                            } else {
+                                alert("You must enter Integers");
                             }
+                        }
+                        
+                        //generate numbers from start value to the end value (logic)
+                        function generateNumbers(sValue, eValue) {
+                            let numbers = [];
+                        
+                            //get all numbers from start to end
+                            for (let i = sValue; i <= eValue; i++) {
+                                numbers.push(i);
+                            }
+                            return numbers;
+                        
+                        }
+                        
+                        //display numbers and mark the even numbers bold (display/view)
+                        function displayNumbers(numbers) {
+                        
+                            let templateRows = "";
+                        
+                            for (let i = 0; i < numbers.length; i++) {
+                        
+                                let className = "even";
+                                let number = numbers[i];
+                                if (number % 2 == 0) {
+                                    className = "even";
+                                } else {
+                                    className = "odd";
+                                }
+                                templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>`;
+                        
+                            }
+                        
+                            document.getElementById("results").innerHTML = templateRows;
+                        }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Function Title</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World!!"</p>
+                    <p>The Code is structured in three functions.</p>
+                    <h5 class="pt-3">getValues</h5>
+                    <p>This is the controller function. First it sets the global variables for start and end values. Then attempts to parse the entered values into integers.</p>
+                    <p>If values are not integers an error message is displayed.</p>
+
+                    <h5 class="pt-3">generateNumbers</h5>
+                    <p>Loops over the entered numbers and pushes them to an array 'numbers'.</p>
+
+                    <h5 class="pt-3">displayNumbers</h5>
+                    <p>Displays the numbers to the screen. Loops over the array checking if the number is even, then adds a class based on the outcome to display as regular or bold.</p>
                 </div>
             </div>
         </div>
